@@ -1,0 +1,86 @@
+.matches-display {
+position: fixed;
+display: flex;
+flex-direction: column;
+align-items: center;
+overflow-y: scroll;
+overscroll-behavior-y:none;
+scrollbar-width: none;
+color: white;
+height: 850px;
+width: 35%;
+
+}
+
+.match-card {
+    height: 90px;
+    width: 150px;
+    margin: 100px 0px;
+
+}
+
+.picture-user-matches {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: space-between;
+    margin: -50px 0px;
+
+}
+
+.display-picture {
+display: flex;
+justify-content: center;
+position: relative;
+right: 150px;
+}
+
+
+@media (max-width: 700px) {
+  .matches-display {
+    position: relative;
+    width: 100%;
+    left: 70px;
+    height: 80vh;
+
+  }
+  .picture-user-matches {
+    height: 150px;
+    width: 150px;
+    margin: 100px 0px;
+  }
+  .match-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;;
+  }
+  }
+
+
+  
+      
+  @media only screen and (max-width: 1300px) {
+    .matches-display {
+      position: relative;
+      width: 100%;
+      left: 70px;
+      height: 80vh;
+  
+    }
+  .picture-user-matches {
+      height: 200px;
+      width: 150px;
+      margin: 40px -90px;
+      }
+      .match-card {
+        width: 100%;
+        display: flex;
+        justify-content: center;;
+margin-left: 80px;
+      }
+    }
+  
+  

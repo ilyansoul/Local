@@ -1,0 +1,51 @@
+.chat-display {
+    color: black;
+}
+
+.img-container {
+    height: 90px;
+    width: 90px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.img-container img {
+    width: 100%;
+}
+
+
+.text-content {
+ 
+font-size: 1.3em;
+color: rgb(237, 247, 248);
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+background-color: #010536;
+border-radius: 25px;
+padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
