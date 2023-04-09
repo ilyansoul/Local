@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgb(234,38,114);
-    background: linear-gradient(254deg, rgba(234,38,114,1) 0%, rgba(236,57,127,1) 14%, rgba(255,255,255,1) 48%, rgba(1,5,54,1) 86%); 
+    background: rgb(234, 38, 114);
+    background: linear-gradient(254deg, rgba(234, 38, 114, 1) 0%, rgba(236, 57, 127, 1) 14%, rgba(255, 255, 255, 1) 48%, rgba(1, 5, 54, 1) 86%);
 }
 
 
 
-.user-name  {
+.user-name {
     display: flex;
     position: relative;
     bottom: 23px;
@@ -17,57 +17,92 @@
 }
 
 .profile {
-  
+
     display: flex;
     align-items: center;
     color: #EA2672;
 }
+
 .profile-img {
-   height: 140px;
-width: 150px ;
-border: white ;
-/* background-color: #010536; */
-overflow: hidden;
-position: relative;
-right: 25px;
+    height: 18vh;
+    width: 30vw;
+    border: white;
+    /* background-color: #010536; */
+    overflow: hidden;
+    position: relative;
+    right: 25px;
 
 
 }
 
 .profile-photo {
-    height: 100px ;
-    width: 90px;
+    height: 18vh;
+    width: 30vw;
     position: relative;
     left: 400px;
     border-radius: 50px;
     left: 0px;
+
+}
+
+@media screen and (min-width: 350px) and (max-width: 700px) {
+    .profile {
+        width: 50%;
+    }
+    .chat-container-header {
+        height: auto;
+        width: 100%;
+    }
+
+    .profile-photo {
+        position: relative;
+
+        left: 50px;
+    }
+    .profile-img {
+    height: 20vh;
+    width: 70vw;
+    border: white;
+    /* background-color: #010536; */
+    position: relative;
+    left: 50px;
+    top: 30px;
+
+
+
+}
+}
+
+@media screen and (min-width: 700px) and (max-width: 1300px) {
+    .profile {
+        width: 35%;
+    }
+    .chat-container-header {
+        height: auto;
+        width: 100%;
+    }
+
+    .profile-photo {
+        position: relative;
+        height: 14vh;
+        width: 40vw;
+        left: 50px;
+    }
+    .profile-img {
+    height: 19vh;
+    width: 50vw;
+    border: white;
+    /* background-color: #010536; */
+    overflow: hidden;
+    position: relative;
+    right: 28px;
+    }
+    
+    .chat-container-header {
+        width: 100%;
+
+    }
+
   
 }
 
-
-@media (max-width: 700px) {
-    .chat-container-header {
- width: 100%;
-
-    }
-    .profile-img{
-        position: relative;
-top: 30px;  
-left: 100px;
-    }
-  }
-@media (max-width: 1300px) {
-    .chat-container-header {
- width: 100%;
- display: flex;
- height: 28vh;
-    }
-    .profile-img{
-        display: flex;
-        position: relative;
-        left: 40px;
-        bottom: 35px;
-       
-    }
-   
-  }

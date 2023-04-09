@@ -42,9 +42,9 @@ right: 150px;
 @media (max-width: 700px) {
   .matches-display {
     position: relative;
+    
     width: 100%;
     left: 70px;
-    height: 80vh;
 
   }
   .picture-user-matches {
@@ -65,9 +65,9 @@ right: 150px;
   @media only screen and (max-width: 1300px) {
     .matches-display {
       position: relative;
+      
       width: 100%;
       left: 70px;
-      height: 80vh;
   
     }
   .picture-user-matches {

@@ -8,6 +8,8 @@ const ChatInput = ({ user, clickedUser, getUserMessages, getClickedUsersMessages
   const userId = user?.user_id
   const clickedUserId = clickedUser?.user_id
 
+
+  
   const addMessage = async () => {
       const message = {
           timestamp: new Date().toLocaleTimeString(),
@@ -27,6 +29,7 @@ const ChatInput = ({ user, clickedUser, getUserMessages, getClickedUsersMessages
   }
 
 
+  
   console.log(getUserMessages);
 
   return (

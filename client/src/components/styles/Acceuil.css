@@ -1,11 +1,9 @@
 .background-m {
     background: url("../../images/love2.jpg");
-    height: 100vh;
-    width: 100%;
+    height: auto;
+    width: auto;
     display: flex;
-    /* Set a specific height */
-  
-    /* Position and center the image to scale nicely on all screens */
+
     background-position: center center;
         background-repeat: no-repeat;
     background-size: cover;
@@ -34,14 +32,20 @@ text-align: end;
     display: flex;
     position: relative;
     padding: 14px;
-    margin: 0px 10px;
+    margin: 0.5rem;
      /* border: 2px solid rgb(255, 255, 255); */
      border-radius: 25px;
      color: white;
      font-family: 'Dancing Script', cursive;
-     font-size: 2.5em;
+     font-size: 2.3em;
 
 }
+
+a {
+    margin: 1rem;
+    font-size: 2rem;
+}
+
 .btni-acceuil {
     display: flex;
     position: relative;
@@ -151,7 +155,89 @@ opacity: 1;
 font-size: 3em;
 }
 
+@media only screen and (max-width: 1300px) {
+    .background-m {
+        background: url("../../images/love2.jpg");
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    
+        background-position: center center;
+            background-repeat: no-repeat;
+        background-size: cover;
+    
+    }
+    
+    
+    .nav-bar {
+        display: flex;
+        
+    }
+    .logo-acceuil {
+    
+    }
+    
+    .main-acceuil {
+        display: flex;
+        flex-direction: column;
+    }
+    i  {
+        position: relative;
+        top: 10px;
+    }
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        top: 50%;
+        right: 50%;
+    
+    }
+    
+    .title {
+        position: relative;
+        right: 250px;
+    }
+    .sub-title {
+    display: flex;
+        position: relative;
+        right: 250px;
+    }
+    
+    .item {
+        padding: 10px 0px 10px 0px;
+    }
+    .descript {
+        padding: 10px 0 px 10px 0px;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .btni-acceuil {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+    .btnc-acceuil {
+        position: relative;
+        top: 50px;
+        right: 180px;
+    }
+    }
+
+
 @media only screen and (max-width: 700px) {
+    .background-m {
+        background: url("../../images/love2.jpg");
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    
+        background-position: center center;
+            background-repeat: no-repeat;
+        background-size: cover;
+    
+    }
+    
 .nav-bar {
     display: flex;
     
@@ -159,7 +245,17 @@ font-size: 3em;
 .logo-acceuil {
 
 }
+p {
+    font-size: 1.3rem;
+    position: relative;
+    right: 50px;
+}
 
+.up-title {
+    font-size: 1.3rem;
+    position: relative;
+    right: 50px;
+}
 .main-acceuil {
     display: flex;
     flex-direction: column;
@@ -190,9 +286,10 @@ display: flex;
     padding: 10px 0px 10px 0px;
 }
 .descript {
-    padding: 10px 0 px 10px 0px;
     display: flex;
     flex-direction: column;
+    padding: 3rem 0;
+
 
 }
 .btni-acceuil {
@@ -207,6 +304,18 @@ display: flex;
 }
 }
 @media only screen and (max-width: 400px) {
+    .background-m {
+        background: url("../../images/love2.jpg");
+        height: 100vh;
+        width: 100%;
+        display: flex;
+    
+        background-position: center center;
+            background-repeat: no-repeat;
+        background-size: cover;
+    
+    }
+    
 .nav-bar {
     display: flex;
     
@@ -246,7 +355,100 @@ p {
 }
 
 .descript {
+    padding: 3rem 0;
+}
+
+a {
+    font-size: 1.3rem;
+    display: flex;
+   justify-content: space-around;
+   margin: 0.5rem;
+
+}
+
+.btnc-acceuil {
+    display: flex;
+    justify-content: center;
     position: relative;
+    left: 0rem;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+.sub-title {
+    font-size: 1.5rem;
+}
+
+.title {
+    position: relative;
+    right: 250px;
+}
+.sub-title {
+display: flex;
+    position: relative;
+    right: 250px;
+}
+
+.item {
+    padding: 10px 0px 10px 0px;
+}
+.descript {
+    padding: 10px 0 px 10px 0px;
+    display: flex;
+    flex-direction: column;
+
+}
+.btni-acceuil {
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+.btnc-acceuil {
+    position: relative;
+    top: 50px;
+    right: 180px;
+}
+}
+@media only screen and (max-width: 900px) {
+.nav-bar {
+    display: flex;
+    
+}
+.logo-acceuil {
+position: relative;
+top: 1.5rem;
+}
+
+.main-acceuil {
+    display: flex;
+    flex-direction: column;
+}
+i  {
+    position: relative;
+    top: 10px;
+}
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 80%;
+    right: 50%;
+
+}
+
+p {
+    font-size: 1.3rem;
+   
+}
+
+.up-title {
+    font-size: 1.3rem;
+  
+}
+
+.descript {
+    padding: 3rem 0;
 }
 
 a {

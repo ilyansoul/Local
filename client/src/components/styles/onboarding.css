@@ -89,3 +89,60 @@ label {
 .onboarding form .photo-container img {
     width: 100%
 }
+
+
+@media screen and (max-width: 768px) {
+    .onboarding {
+    height: auto;
+    }
+    .onboarding form section {
+    width: 100%;
+    }
+    }
+
+
+    @media screen and (min-width: 480px) and (max-width: 768px) {
+        .onboarding form {
+            flex-direction: column;
+            }
+            .onboarding form section {
+            padding: 10px;
+            }
+            .onboarding form .multiple-input-container {
+            flex-direction: column;
+            }
+            .onboarding form .multiple-input-container input {
+            margin-right: 0;
+            margin-bottom: 10px;
+            }
+            .onboarding form .multiple-input-container label {
+            margin-right: 0;
+            margin-bottom: 10px;
+            }
+        .onboarding {
+    height: auto;
+    }
+    .onboarding form section {
+    width: 100%;
+    }
+      }
+    
+    @media screen and (max-width: 480px) {
+    .onboarding form {
+    flex-direction: column;
+    }
+    .onboarding form section {
+    padding: 10px;
+    }
+    .onboarding form .multiple-input-container {
+    flex-direction: column;
+    }
+    .onboarding form .multiple-input-container input {
+    margin-right: 0;
+    margin-bottom: 10px;
+    }
+    .onboarding form .multiple-input-container label {
+    margin-right: 0;
+    margin-bottom: 10px;
+    }
+    }
