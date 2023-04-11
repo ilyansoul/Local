@@ -41,15 +41,7 @@ const Localisation = () => {
 
   return (
     <>
-      <div className="map-styles">
-        <EditLeft onLocationClick={handleLocationClick} />
-        {!authorized && (
-          <button className="map-display" onClick={handleLocationClick}>
-            Position
-          </button>
-        )}
-        {authorized && <p>Your location has been stored.</p>}
-      </div>
+    
     </>
   );
 };

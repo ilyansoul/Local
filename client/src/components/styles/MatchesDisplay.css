@@ -7,7 +7,7 @@ overflow-y: scroll;
 overscroll-behavior-y:none;
 scrollbar-width: none;
 color: white;
-height: 850px;
+height: 100vh;
 width: 35%;
 
 }
@@ -20,14 +20,14 @@ width: 35%;
 }
 
 .picture-user-matches {
-    height: 200px;
-    width: 200px;
+    height: 230px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 50%;
     justify-content: space-between;
-    margin: -50px 0px;
+    margin: 0px 0px;
 
 }
 

@@ -11,8 +11,17 @@ const ChatInput = ({ user, clickedUser, getUserMessages, getClickedUsersMessages
 
   
   const addMessage = async () => {
+    const options = {
+       
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+      };
+
       const message = {
-          timestamp: new Date().toLocaleTimeString(),
+          timestamp: new Date().toLocaleTimeString(undefined, options),
           from_userId: userId,
           to_userId: clickedUserId,
           message: textArea

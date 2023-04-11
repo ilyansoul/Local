@@ -10,12 +10,17 @@ import { Icon } from 'semantic-ui-react'
 
 
 const HomePage = () => {
+  const [ShowAbout, setShowAbout] = useState(false)
   const [user, setUser] = useState(null)
   const [genderedUsers, setGenderedUsers] = useState(null)
   const [lastDirection, setLastDirection] = useState()
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
   const [swipedUsers, setSwipedUsers] = useState([])
   
+  const handleCardClick = () => {
+    setShowAbout(true);
+  };
+
   const userId = cookies.UserId
 
   const getUser = async () => {
@@ -29,6 +34,7 @@ const HomePage = () => {
       }
   }
 
+
   const getGenderedUsers = async () => {
       try {
           const response = await axios.get('http://localhost:5000/gendered-users', {
@@ -41,7 +47,7 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-      getUser()
+      getUser();
   }, [])
 
   useEffect(() => {
@@ -50,22 +56,23 @@ const HomePage = () => {
       }
   }, [user])
   
-const updateMatches = async (matchedUserId) => {
-  try {
-    await axios.put('http://localhost:5000/addmatch', {
-      userId,
-      matchedUserId
-    })
-    await axios.put('http://localhost:5000/addmatch', {
-      userId: matchedUserId,
-      matchedUserId: userId
-    })
-    getUser()
-  } catch (err) {
-    console.log(err)
+  const updateMatches = async (matchedUserId) => {
+    try {
+      await axios.put('http://localhost:5000/addmatch', {
+        userId,
+        matchedUserId
+      })
+      await axios.put('http://localhost:5000/addmatch', {
+        userId: matchedUserId,
+        matchedUserId: userId
+      })
+      const intervalId = setInterval(getUser, 1000) // refresh every second
+      await getUser()
+      clearInterval(intervalId) // clear the interval
+    } catch (err) {
+      console.log(err)
+    }
   }
-}
-
 
   const swiped = (direction, swipedUserId, swipedUser) => {
       if (direction === 'right') {
@@ -78,9 +85,12 @@ const updateMatches = async (matchedUserId) => {
       console.log(name + ' left the screen!')
   }
 
+
+
   const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
   const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.user_id))
 
+  
 
   console.log('filteredGenderedUsers ', filteredGenderedUsers)
   return (
@@ -102,20 +112,31 @@ const updateMatches = async (matchedUserId) => {
              </div>
 
               {filteredGenderedUsers?.map((genderedUser) =>
-                <TinderCard
-                  className="swipe"
-                  key={genderedUser.user_id}
-                  onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
-                  onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}>
-                  <div
-                    style={{ backgroundImage: "url(" + genderedUser.url + ")" }}
-                    className="card">
-                    <h3>{genderedUser.first_name}</h3>
-                  </div>
-                </TinderCard>
+          <TinderCard
+          className="swipe"
+          key={genderedUser.user_id}
+          onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
+          onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}
+        >
+          <div className="card-container">
+            <div
+              style={{ backgroundImage: "url(" + genderedUser.url + ")" }}
+              className="card"
+              onDrop={handleCardClick}
+            >
+              <h3>{genderedUser.first_name}</h3>
+            </div>
+            <div className="about-container" style={{ display: ShowAbout ? 'block' : 'none' }}>
+              <p className='aboutMe'>{genderedUser.about}</p>
+            </div>
+          </div>
+        </TinderCard>
               )}
               <div className="swipe-info">
                 {lastDirection ? <p>You swiped {lastDirection}</p> : <p />}
+              </div>
+              <div>
+                
               </div>
             </div>
 
