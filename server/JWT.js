@@ -1,7 +1,9 @@
 const {sign, verify} = require('jsonwebtoken')
+let secretKey = process.env.secret;
 
 const createToken = (user, token) => {
-    const accessToken = sign({username : user.name, id: user.id }, "SECRET")
+    const accessToken = sign({username : user.name, id: user.id }, secretKey)
+
     return accessToken;
 }
 
@@ -13,7 +15,7 @@ const validateToken = (req , res , next) => {
      return res.status(400).json({err: 'User not Authenticated'})
     };
     try {
-        const validToken = verify(accessToken, "SECRET");
+        const validToken = verify(accessToken, secretKey);
         if(validToken) {
  req.authenticated = true;
  return next();

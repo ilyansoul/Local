@@ -17,11 +17,11 @@ const HomePage = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
   const [swipedUsers, setSwipedUsers] = useState([])
   
-  const handleCardClick = () => {
-    setShowAbout(true);
-  };
+/* Définition de la variable userId qui stocke la valeur du cookie UserId */
 
   const userId = cookies.UserId
+
+  /* Fonction asynchrone pour récupérer les informations de l'utilisateur */
 
   const getUser = async () => {
       try {
@@ -34,6 +34,7 @@ const HomePage = () => {
       }
   }
 
+/* Fonction asynchrone pour récupérer les utilisateurs correspondants au genre d'intérêt de l'utilisateur actuel */
 
   const getGenderedUsers = async () => {
       try {
@@ -46,16 +47,22 @@ const HomePage = () => {
       }
   }
 
+  /* Effect pour exécuter getUser() une fois au chargement de la page */
+
   useEffect(() => {
       getUser();
   }, [])
+/* Effect pour exécuter getGenderedUsers() à chaque fois que user est modifié */
+
 
   useEffect(() => {
       if (user) {
           getGenderedUsers()
       }
   }, [user])
-  
+
+  /* Fonction asynchrone pour mettre à jour les correspondances en ajoutant l'utilisateur correspondant */
+
   const updateMatches = async (matchedUserId) => {
     try {
       await axios.put('http://localhost:5000/addmatch', {
@@ -74,6 +81,8 @@ const HomePage = () => {
     }
   }
 
+  /* Fonction appelée lorsqu'un utilisateur est swip */
+
   const swiped = (direction, swipedUserId, swipedUser) => {
       if (direction === 'right') {
           updateMatches(swipedUserId)
@@ -81,18 +90,25 @@ const HomePage = () => {
       setLastDirection(direction)
   }
 
+  /* Fonction appelée lorsque la carte est hors de l'écran */
+
   const outOfFrame = (name) => {
       console.log(name + ' left the screen!')
   }
 
 
-
+/* Récupération des correspondances de l'utilisateur actuel et stockage dans matchedUserIds */
   const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
+
+  /* Filtre des utilisateurs correspondants au genre souhaiter de l'utilisateur actuel */
   const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.user_id))
 
-  
 
-  console.log('filteredGenderedUsers ', filteredGenderedUsers)
+
+
+      /*La condition {user && ...} vérifie si l'utilisateur est authentifié et affiche la section suivante si c'est le cas.*/
+/*La balise {filteredGenderedUsers?.map((genderedUser) => ...)} permet de boucler à travers les profils filtrés et de retourner une carte Tinder pour chaque profil.*/
+
   return (
     <>
       {user &&
@@ -122,12 +138,8 @@ const HomePage = () => {
             <div
               style={{ backgroundImage: "url(" + genderedUser.url + ")" }}
               className="card"
-              onDrop={handleCardClick}
             >
               <h3>{genderedUser.first_name}</h3>
-            </div>
-            <div className="about-container" style={{ display: ShowAbout ? 'block' : 'none' }}>
-              <p className='aboutMe'>{genderedUser.about}</p>
             </div>
           </div>
         </TinderCard>

@@ -1,13 +1,13 @@
 import React from 'react'
 import '../styles/Chat.css'
 
-const Chat = ({ descendingOrderMessages }) => {
+const Chat = ({ messagesDecroissant }) => {
   return (
     <div className="chat-display">
-      {descendingOrderMessages
+      {messagesDecroissant
         .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
         .map((message, index) => (
-          <div key={index}>
+          <div className='textmessage' key={index}>
             <div className="chat-message-header">
               <div className="img-container">
                 <img className='image-content' src={message.img} alt={message.name + ' profile'}/>

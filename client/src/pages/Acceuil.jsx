@@ -12,6 +12,8 @@ function Acceuil() {
       <div className='nav-bar'>
         <img className='logo-acceuil' src={Logo} alt="" />
         <a className='btnc-acceuil'>
+
+
           <Link to="/register"> Inscription </Link>
           <Link to="/login"> Connexion </Link>
         </a>
@@ -30,7 +32,7 @@ function Acceuil() {
       <div className='descript'>
         <div className='item'>
         <Icon disabled name='like' />    
-        <h1 className='up-title'>Modes inedits</h1>
+        <h1 className='up-title'>Pour toutes rencontres!</h1>
          <p>Amical , Aventures , Serieux</p>
         </div>
         <div className='item'>

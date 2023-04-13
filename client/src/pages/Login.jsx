@@ -14,6 +14,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
+    /* empeche la page par defaut d'etre recharger pour eviter perte de donnees */
     e.preventDefault();
 
     setIsLoading(true);

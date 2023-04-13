@@ -1,6 +1,5 @@
 const express = require('express');
 var app = express();
-const request = require('express').request;
 const fs = require('fs')
 // hashpassword
 const bcrypt = require('bcrypt');
@@ -19,10 +18,8 @@ const { createToken, validateToken } = require('./JWT')
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 app.use(express.json());
-//
-// const { request } = require('express');
-const saltRounds = 10;
-//
+
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 ///use dotenv

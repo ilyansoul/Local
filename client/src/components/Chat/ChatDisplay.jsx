@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 
 
 const ChatDisplay = ({ user, clickedUser }) => {
+    // recupere l'id de l'utulisateur s'il est definit sinon renvoie undefined
     const userId = user?.user_id
     const clickedUserId = clickedUser?.user_id
     const [usersMessages, setUsersMessages] = useState(null)
@@ -65,15 +66,15 @@ const ChatDisplay = ({ user, clickedUser }) => {
         clickedUserMessages.push(formattedMessage);
     });
 
-    const messages = [...currentUserMessages, ...clickedUserMessages];
-    const descendingOrderMessages = messages?.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+    const messages = [...currentUserMessages, ...clickedUserMessages]; // Concatener les 2 tableaux en un seul
+    const messagesDecroissant = messages?.sort((a, b) => a.timestamp.localeCompare(b.timestamp)); // trie les messages par ordre decroissant
 
     console.log('usersMessages', usersMessages);
     console.log('formattedMessages', messages);
 
     return (
         <>
-            <Chat descendingOrderMessages={messages} isSender={true} />
+            <Chat messagesDecroissant={messages} isSender={true} />
 
             <ChatInput
                 user={user}
